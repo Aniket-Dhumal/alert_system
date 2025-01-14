@@ -7,7 +7,11 @@ app = Flask(__name__)
 # Initialize the alert system
 alert_system = AlertSystem()
 
+@app.route('/', methods=['GET'])
+def home():
+    return "Welcome to the Alert System API!", 200
 # Add a new alert
+
 @app.route('/add_alert', methods=['POST'])
 def add_alert():
     data = request.json
